@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavigationBar from './NavigationBar';
+import FlashMessagesList from './flash/FlashMessagesList';
 
 class App extends Component {
 
@@ -7,6 +8,7 @@ class App extends Component {
     return (
       <div className="container">
         <NavigationBar />
+        <FlashMessagesList/>
         {this.props.children}
       </div>
     );
