@@ -12,7 +12,7 @@ export default function validateInput(data) {
     errors.email = 'This field is required';
   }
 
-  if (Validator.isEmail(data.email)) {
+  if (!Validator.isEmail(data.email)) {
     errors.email = 'Email is invalid';
   }
 
