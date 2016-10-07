@@ -31,6 +31,7 @@ function validateInput(data, commonValidations) {
 }
 
 router.get('/:identifier', (req, res) => {
+
   User.query({
     select: ["username", "email"],
     where: { email: req.params.identifier },
@@ -38,9 +39,11 @@ router.get('/:identifier', (req, res) => {
   }).fetch().then(user => {
     res.json({ user });
   });
+
 });
 
 router.post('/', (req, res) => {
+
   validateInput(req.body, commonValidations).then(({ errors, isValid }) => {
     if (isValid) {
       const { username, password, timezone, email } = req.body;
@@ -57,6 +60,7 @@ router.post('/', (req, res) => {
       res.status(400).json(errors);
     }
   });
+
 });
 
 export default router;

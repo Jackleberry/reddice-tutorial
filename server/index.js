@@ -8,6 +8,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev.js';
 
 import users from './routes/users';
+import auth from './routes/auth';
 
 let port = 3003;
 let app = express();
@@ -15,6 +16,7 @@ let app = express();
 app.use(bodyParser.json());
 
 app.use('/api/users', users);
+app.use('/api/auth', auth);
 
 const compiler = webpack(webpackConfig);
 

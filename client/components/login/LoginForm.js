@@ -46,7 +46,7 @@ class LoginForm extends Component {
           });
           this.context.router.push('/');
         },
-        ({ data }) => this.setState({ errors: data, isLoading: false})
+        ({ data }) => this.setState({ errors: data.errors, isLoading: false})
       );
     }
   }
@@ -57,6 +57,8 @@ class LoginForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <h1>Login</h1>
+
+        { errors.form && <div className="alert alert-danger">{ errors.form }</div> }
 
         <TextFieldGroup
           field="identifier"
