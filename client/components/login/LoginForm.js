@@ -3,7 +3,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import ValidateInput from '../../../server/shared/validations/login';
 import { connect } from 'react-redux';
 import { addFlashMessage } from '../../actions/flashMessages';
-import { login } from '../../actions/loginActions';
+import { login } from '../../actions/authActions';
 
 class LoginForm extends Component {
 
@@ -46,7 +46,9 @@ class LoginForm extends Component {
           });
           this.context.router.push('/');
         },
-        ({ data }) => this.setState({ errors: data.errors, isLoading: false})
+        (err) => {
+          this.setState({ errors: err.response.data.errors, isLoading: false})
+        }
       );
     }
   }
