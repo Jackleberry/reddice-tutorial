@@ -107,6 +107,7 @@ class SignupForm extends Component {
           field="password"
           value={this.state.password}
           label="Password"
+          type="password"
           onChange={this.onChange}
           error={errors.password}
         />
@@ -115,6 +116,7 @@ class SignupForm extends Component {
           field="passwordConfirmation"
           value={this.state.passwordConfirmation}
           label="Password Confirmation"
+          type="password"
           onChange={this.onChange}
           error={errors.passwordConfirmation}
         />
